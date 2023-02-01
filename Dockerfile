@@ -10,5 +10,5 @@ RUN apk add --no-cache curl \
 ADD . /postgres-gcs-backup
 WORKDIR /postgres-gcs-backup
 RUN chmod +x /postgres-gcs-backup/backup.sh
-# ENTRYPOINT ["/postgres-gcs-backup/backup.sh"]
+ENTRYPOINT ["/postgres-gcs-backup/backup.sh"]
 
