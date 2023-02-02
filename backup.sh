@@ -32,7 +32,7 @@ backup() {
   eval "$cmd"
 }
 
-upload() {
+upload_to_gcs() {
   if [[ ! "$GCS_BUCKET" =~ gs://* ]]; then
     GCS_BUCKET="gs://${GCS_BUCKET}"
   fi
