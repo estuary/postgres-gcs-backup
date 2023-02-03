@@ -26,6 +26,7 @@ backup() {
   archive_name="$date-$JOB_NAME-backup.sql.gz"
 
   echo "$POSTGRES_HOST:$POSTGRES_PORT:*:$POSTGRES_USER:$POSTGRES_PASSWORD" > ~/.pgpass
+  export PGPASSWORD=$POSTGRES_PASSWORD
   chmod 0600 ~/.pgpass
   cmd="pg_dumpall -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER | gzip > $BACKUP_DIR/$archive_name"
   echo "Backing up all databases on $POSTGRES_HOST:$POSTGRES_PORT"
