@@ -30,7 +30,7 @@ backup() {
   echo "$POSTGRES_HOST:$POSTGRES_PORT:*:$POSTGRES_USER:$POSTGRES_PASSWORD" > ~/.pgpass
   export PGPASSWORD=$POSTGRES_PASSWORD
   chmod 0600 ~/.pgpass
-  cmd="pg_dump -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER -n $POSTGRES_SCHEMA $POSTRES_DATABASE | gzip > $BACKUP_DIR/$archive_name"
+  cmd="pg_dump -h $POSTGRES_HOST -p $POSTGRES_PORT -U $POSTGRES_USER -n $POSTGRES_SCHEMA $POSTGRES_DATABASE | gzip > $BACKUP_DIR/$archive_name"
   echo "Backing up all databases on $POSTGRES_HOST:$POSTGRES_PORT"
   eval "$cmd"
 }
